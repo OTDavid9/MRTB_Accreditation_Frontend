@@ -29,6 +29,6 @@
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts",
     "**/*.mts"
-  ],
+, "app/dashboard/components/forms/PreassessmentForm", "app/forms/assessment/physiotherapy/clinical/StepThree.tsx"  ],
   "exclude": ["node_modules"]
 }
