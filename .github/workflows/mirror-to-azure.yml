@@ -1,12 +1,10 @@
-name: Mirror to Azure Repo
+name: Initial Sync GitHub Main to Azure Development
 
 on:
-  push:
-    branches:
-      - main
+  workflow_dispatch:
 
 jobs:
-  mirror:
+  sync:
     runs-on: ubuntu-latest
 
     steps:
@@ -15,8 +13,7 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Push to Azure Repos
+      - name: Force sync main to Azure development
         run: |
           git remote add azure https://${{ secrets.AZURE_PAT }}@dev.azure.com/MRTB-Licensing-Project/MRTB%20Licensing%20Project/_git/MRTB-Accreditaion-FE
-          git push azure --all
-          git push azure --tags
+          git push azure main:development --force
